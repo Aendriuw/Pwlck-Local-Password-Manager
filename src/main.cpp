@@ -7,11 +7,11 @@ constexpr int UNKNOWN_OPT = 1;
 constexpr int NOARGS_RET = 2;
 constexpr int INTERNAL_ERR_RET = 166;
 
-enum class Scenario {NoArgs, Help, Other};
+enum class Scenario { NoArgs, Help, Other };
 
 class Command {
 public:
-	Command(const std::vector<std::string>& argv) : options_(argv) { }
+	Command(const std::vector<std::string> &argv) : options_(argv) {}
 
 	int handle_command() {
 		Scenario scenario = Scenario::NoArgs;
@@ -26,7 +26,7 @@ public:
 				break;
 			}
 		}
-		
+
 		switch (scenario) {
 			case Scenario::Help:
 				print_help();
@@ -45,8 +45,8 @@ public:
 private:
 	void print_help() const {
 		std::cout << "Usage: pwlck [options]\n"
-					 "Options:\n"
-					 "  -h, --help    Show this help and exit\n";
+		             "Options:\n"
+		             "  -h, --help    Show this help and exit\n";
 	}
 
 	void print_one_line_hint() const {

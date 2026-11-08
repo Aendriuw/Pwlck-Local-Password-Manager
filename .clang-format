@@ -1,0 +1,18 @@
+---
+BasedOnStyle: LLVM
+Language: Cpp
+
+# Tabs for indentation, spaces only for alignment inside a line.
+UseTab: ForIndentation
+IndentWidth: 4
+TabWidth: 4
+
+ColumnLimit: 80
+
+# `public:` / `private:` flush with `class`, `case` indented inside `switch`.
+AccessModifierOffset: -4
+IndentCaseLabels: true
+
+# `const std::string &s` / `char *argv[]`
+PointerAlignment: Right
+---
