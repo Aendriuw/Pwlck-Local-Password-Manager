@@ -179,7 +179,7 @@ public:
 	}
 
 	/**
-	 *  Returns an array of entries for a domain if it exists, or std::nullopt
+	 * Returns an array of entries for a domain if it exists, or std::nullopt
 	 * otherwise.
 	 */
 	std::optional<std::vector<Entry>>
