@@ -83,7 +83,8 @@ enum class AddRet {
 	NoPassword,
 	Duplicate,
 	WrongUsernameFmt,
-	WrongDomainFmt
+	WrongDomainFmt,
+	WrongPasswordFmt
 };
 
 class EntryList {
@@ -127,6 +128,10 @@ public:
 
 		if (!check_domain_format(domain)) {
 			return AddRet::WrongDomainFmt;
+		}
+
+		if (!check_password_format(password)) {
+			return AddRet::WrongPasswordFmt;
 		}
 
 		std::string normal_domain = normalise_string(domain);
@@ -285,6 +290,16 @@ private:
 	bool check_domain_format(const std::string &domain) const {
 		for (unsigned char c : domain) {
 			if (std::isspace(c) || std::iscntrl(c)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	bool check_password_format(const std::string &password) {
+		for (unsigned char c : password) {
+			if (std::iscntrl(c)) {
 				return false;
 			}
 		}
