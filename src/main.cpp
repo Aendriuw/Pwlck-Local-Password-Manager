@@ -266,13 +266,12 @@ private:
 	 */
 	bool check_username_format(const std::string &username) const {
 		if (std::isspace(static_cast<unsigned char>(username[0])) ||
-		    std::isspace(
-		        static_cast<unsigned char>(username[username.size() - 1]))) {
+		    std::isspace(static_cast<unsigned char>(username[username.size() - 1]))) {
 			return false;
 		}
 
 		for (unsigned char c : username) {
-			if (std::iscntrl(static_cast<unsigned char>(c))) {
+			if (std::iscntrl(c)) {
 				return false;
 			}
 		}
@@ -285,8 +284,7 @@ private:
 	 */
 	bool check_domain_format(const std::string &domain) const {
 		for (unsigned char c : domain) {
-			if (std::isspace(static_cast<unsigned char>(c)) ||
-			    std::iscntrl(static_cast<unsigned char>(c))) {
+			if (std::isspace(c) || std::iscntrl(c)) {
 				return false;
 			}
 		}
